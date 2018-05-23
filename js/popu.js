@@ -34,6 +34,7 @@ $(function() {
 		}
 	});
 });
+//敲回车搜索
 //$(document).keypress(function(e) {
 //	if(e.which == 13) {
 //		$("#tabs").empty();

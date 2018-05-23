@@ -19,7 +19,7 @@
     {
         // 2种指定方式，如果指定JS，那么会自动生成一个背景页
 //      "page": "background.html"
-		"persistent":false,
+		"persistent":true,
 //		"page": "html/background.html",//chrome://extensions/ 内放置一个链接  用来查看视图 
         "scripts": ["js/background.js"]
     },
@@ -33,12 +33,12 @@
         "default_popup": "html/index.html"//点击菜单的按钮会显示内容，应该可以放链接按钮
     },
     // 当某些特定页面打开才显示的图标
-    /*"page_action":
-    {
-        "default_icon": "img/icon.png",
-        "default_title": "我是pageAction",
-        "default_popup": "popup.html"
-    },*/
+//  "page_action":
+//  {
+//      "default_icon": "img/smile.png",
+//      "default_title": "欢迎你，兄dei！",
+//      "default_popup": "http://inkvilla.html"
+//  },
     // 需要直接注入页面的JS
 //  "content_scripts": 
 //  [
@@ -62,7 +62,7 @@
     // 权限申请
     "permissions":
     [
-//      "contextMenus", // 右键菜单
+        "contextMenus", // 右键菜单
         "tabs", // 标签
         "activeTab"
         //      "notifications", // 通知
@@ -84,20 +84,42 @@
 //      "newtab": "newtab.html"
 //  },
     // Chrome40以前的插件配置页写法
-//  "options_page": "options.html",
+//  "options_page": "html/options.html",
     // Chrome40以后的插件配置页写法，如果2个都写，新版Chrome只认后面这一个
-//  "options_ui":
-//  {
-//      "page": "options.html",
-//      // 添加一些默认的样式，推荐使用
-//      "chrome_style": true
-//  },
+    "options_ui":
+    {
+        "page": "html/options.html",
+        // 添加一些默认的样式，推荐使用
+        "chrome_style": true
+    },
     // 向地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
-    "omnibox": { "keyword" : "zxns" }
+    "omnibox": { "keyword" : "xns" },
     // 默认语言
 //  "default_locale": "zh_CN",
     // devtools页面入口，注意只能指向一个HTML文件，不能是JS文件
 //  "devtools_page": "html/devtools.html"
 //  "update_url": "http://inkvilla.com"
-    
+    "commands": {
+    	"toggle-feature-foo": {
+         "description": "开启zxntools页签搜索",
+         "global": false,
+         "suggested_key": {
+            "default": "Ctrl+Shift+5"
+        	}
+      	}//,
+//    	"toggle-feature-foo2": {
+//       "description": "开启zxntools页签搜索",
+//       "global": true,
+//       "suggested_key": {
+//          "default": "Ctrl+Shift+6"
+//      	}
+//    	},
+//    	"toggle-feature-foo3": {
+//       "description": "开启zxntools页签搜索",
+//       "global": true,
+//       "suggested_key": {
+//          "default": "Ctrl+Shift+3"
+//      	}
+//    	}
+   }
 }
